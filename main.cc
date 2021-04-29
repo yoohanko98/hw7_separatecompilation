@@ -32,8 +32,8 @@ int main() {
 
 	//%50 bonus
 	// (x,y,z)           r,  numfacets
-	Sphere s(-50,50,50,  25, 10);
-	s.print("sphere.stl");
+	//Sphere s(-50,50,50,  25, 10);
+	//s.print("sphere.stl");
 
 	//+%100%
 	Drawing d; // constructor, destructor, ...

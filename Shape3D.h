@@ -15,7 +15,7 @@ private:
     double x_t, y_t, z_t;
 public:
     //ofstream f;
-    struct vertex {float x; float y; float z};
+    struct vertex {float x; float y; float z;};
     vector<vertex> vertices;
     Shape3D(double x, double y, double z);
     virtual ~Shape3D();
@@ -26,6 +26,8 @@ public:
     void unit(vertex& v); //make unit vector
     void stlFacetOut(ofstream& file,vector<vertex>::const_iterator v, vertex normal); //print each facet
     void stlCombineFacets(ofstream& file, const vector<vertex>& vertices); //combine all facets
+    float getX(); float getY(); float getZ();
+
 
 };
 #endif //MYHOMEWORK_SHAPE3D_H

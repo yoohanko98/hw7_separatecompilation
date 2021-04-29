@@ -7,11 +7,11 @@ draw3D: $(OBJ)
 main.o: main.cc Cube.h Cylinder.h Shape3D.h Drawing.h
 	g++ -g -c main.cc
 
-Cube.o: Cube.cc Cube.h Shape3D.h
-	g++ -g -c Cube.cc
+Cube.o: Cube.cpp Cube.h Shape3D.h
+	g++ -g -c Cube.cpp
 
-Cylinder.o: Cylinder.cc Cylinder.h Shape3D.h
-	g++ -g -c Cylinder.cc
+Cylinder.o: Cylinder.cpp Cylinder.h Shape3D.h
+	g++ -g -c Cylinder.cpp
 
 Drawing.o: Drawing.cpp Drawing.h Shape3D.h
 	g++ -g -c Drawing.cpp

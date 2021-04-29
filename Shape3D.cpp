@@ -5,6 +5,9 @@
 
 Shape3D::Shape3D(double x, double y, double z): x_t(x), y_t(y), z_t(z) {}
 Shape3D::~Shape3D() {}
+float Shape3D::getX() {return x_t;}
+float Shape3D::getY() {return y_t;}
+float Shape3D::getZ() {return z_t;}
 friend vertex operator ^(const vertex& a,const vertex& b){
     vertex result;
     result.x = a.y * b.z - a.z * b.y;
