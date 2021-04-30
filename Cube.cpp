@@ -9,7 +9,7 @@ Cube::Cube(double x, double y, double z, double l) : Shape3D(x,y,z), length(l){
 
 }
 Cube::~Cube() {}
-void Cube::createVertices(vector<vertex>& vertices) {
+void Cube::createVertices(vector<Shape3D::vertex>& vertices) {
     //determine the 12 vertices' location
     //top
     vertices.push_back(vertex(0, length, length));
@@ -59,7 +59,7 @@ void Cube::createVertices(vector<vertex>& vertices) {
     vertices.push_back(vertex(0, 0, 0));
     vertices.push_back(vertex(0, 0, length));
 
-    for(vector<vertex>::iterator v = vertices.begin(); v != vertices.end(); ++v){
+    for(vector<Shape3D::vertex>::iterator v = vertices.begin(); v != vertices.end(); ++v){
         v->x = v->x + getX();
         v->y = v->y + getY();
         v->z = v->z + getZ();

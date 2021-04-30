@@ -28,7 +28,7 @@ public:
     friend vertex operator ^(const vertex& a,const vertex& b); //cross product
     friend vertex operator -(const vertex& a, const vertex& b); //minus vector
     void unit(vertex& v); //make unit vector
-    void stlFacetOut(ofstream& file,const vector<Shape3D::vertex>& vertices, int& i, vertex normal); //print each facet
+    void stlFacetOut(ofstream& file,const vector<vertex>& vertices, int& i, vertex normal); //print each facet
     void stlCombineFacets(ofstream& file, const vector<vertex>& vertices); //combine all facets
     double getX(); double getY(); double getZ();
 

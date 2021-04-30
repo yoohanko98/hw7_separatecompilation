@@ -18,6 +18,6 @@ public:
     ~Cube();
     void print(string filename) override;
     //determine the location of each vertex
-    void createVertices(vector<vertex>& vertices) override;
+    void createVertices(vector<Shape3D::vertex>& vertices) override;
 };
 #endif //MYHOMEWORK_CUBE_H

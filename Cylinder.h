@@ -14,13 +14,13 @@ private:
     double radius;
     double height;
     int facets;
-    vector<vertex> tops;
-    vector<vertex> bottoms;
+    vector<Shape3D::vertex> tops;
+    vector<Shape3D::vertex> bottoms;
     //ofstream f;
 public:
     Cylinder(double x, double y, double z, double r, double h, int f);
     ~Cylinder();
     void print(string filename) override;
-    void createVertices(vector<vertex>& vertices) override;
+    void createVertices(vector<Shape3D::vertex>& vertices) override;
 };
 #endif //MYHOMEWORK_CYLINDER_H
