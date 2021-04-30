@@ -5,66 +5,60 @@
 using namespace std;
 //initiate constructor assigned origin point and side length
 //Cube has 12 facets and each facet uses 3 vertices, so then the number of vertices is 3*facetNum
-Cube::Cube(double x, double y, double z, double l) : Shape3D(x,y,z), length(l){}
+Cube::Cube(double x, double y, double z, double l) : Shape3D(x,y,z), length(l){
+
+}
 Cube::~Cube() {}
-void Cube::createVertices(vector <vertex> &vertices) {
+void Cube::createVertices(vector<vertex>& vertices) {
     //determine the 12 vertices' location
-    vertices.push_back(
-            //top
-            {0,length,length},
-            {length,0,length},
-            {length,length,length}
-            ,
-            {length,0,length},
-            {0,length,length},
-            {0,0,length},
+    //top
+    vertices.push_back(vertex(0, length, length));
+    vertices.push_back(vertex(length, 0, length));
+    vertices.push_back(vertex(length, length, length));
+    vertices.push_back(vertex(length, 0, length));
+    vertices.push_back(vertex(0, length, length));
+    vertices.push_back(vertex(0, 0, length));
 
-            //bottom
-            {0,0,0},
-            {length,length,0},
-            {length,0,0}
-            ,
-            {length,length,0},
-            {0,0,0},
-            {0,length,0},
+    //bottom
+    vertices.push_back(vertex(0, 0, 0));
+    vertices.push_back(vertex(length, length, 0));
+    vertices.push_back(vertex(length, 0, 0));
+    vertices.push_back(vertex(length, length, 0));
+    vertices.push_back(vertex(0, 0, 0));
+    vertices.push_back(vertex(0, length, 0));
 
-            //front
-            {0,0,0},
-            {length,0,length},
-            {0,0,length}
-            ,
-            {length,0,length},
-            {0,0,0},
-            {length,0,0},
+    //front
+    vertices.push_back(vertex(0, 0, 0));
+    vertices.push_back(vertex(length, 0, length));
+    vertices.push_back(vertex(0, 0, length));
+    vertices.push_back(vertex(length, 0, length));
+    vertices.push_back(vertex(0, 0, 0));
+    vertices.push_back(vertex(length, 0, 0));
 
-            //right
-            {length,0,length},
-            {length,length,0},
-            {length,length,length}
-            ,
-            {length,length,0},
-            {length,0,length},
-            {length,0,0},
+    //right
+    vertices.push_back(vertex(length, 0, length));
+    vertices.push_back(vertex(length, length, 0));
+    vertices.push_back(vertex(length, length, length));
+    vertices.push_back(vertex(length, length, 0));
+    vertices.push_back(vertex(length, 0, length));
+    vertices.push_back(vertex(length, 0, 0));
 
             //rear
-            {length,length,0},
-            {0,length,length},
-            {length,length,length}
-            ,
-            {0,length,length},
-            {length,length,0},
-            {0,length,0},
+    vertices.push_back(vertex(length, length, 0));
+    vertices.push_back(vertex(0, length, length));
+    vertices.push_back(vertex(length, length, length));
+    vertices.push_back(vertex(0, length, length));
+    vertices.push_back(vertex(length, length, 0));
+    vertices.push_back(vertex(0, length, 0));
 
             //left
-            {0,0,0},
-            {0,length,length},
-            {0,length,0}
-            ,
-            {0,length,length},
-            {0,0,0},
-            {0,0,length}
+    vertices.push_back(vertex(0, 0, 0));
+    vertices.push_back(vertex(0, length, length));
+    vertices.push_back(vertex(0, length, 0));
+    vertices.push_back(vertex(0, length, length));
+    vertices.push_back(vertex(0, 0, 0));
+    vertices.push_back(vertex(0, 0, length));
 
-    );
     for(vector<vertex>::iterator v = vertices.begin(); v != vertices.end(); ++v){
         v->x = v->x + getX();
         v->y = v->y + getY();
@@ -74,7 +68,7 @@ void Cube::createVertices(vector <vertex> &vertices) {
 
 void Cube::print(string filename) {
     //print stl format
-    f(filename.c_str());
+    ofstream f(filename.c_str());
     createVertices(vertices);
     Shape3D::stlCombineFacets(f,vertices);
 }

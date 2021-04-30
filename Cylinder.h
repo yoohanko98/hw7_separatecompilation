@@ -16,7 +16,7 @@ private:
     int facets;
     vector<vertex> tops;
     vector<vertex> bottoms;
-    ofstream f;
+    //ofstream f;
 public:
     Cylinder(double x, double y, double z, double r, double h, int f);
     ~Cylinder();

@@ -12,16 +12,27 @@ void Cylinder::createVertices(vector<vertex> &vertices) {
 
     //construct top and bottom coordinates
     for(float i = 0; i <= 2*M_PI; i+= incre){
-        tops.push_back({radius*cos(i), radius*sin(i), height});
-        bottoms.push_back({radius*cos(i), radius*sin(i), 0});
+        tops.push_back(vertex(radius*cos(i), radius*sin(i), height));
+        bottoms.push_back(vertex(radius*cos(i), radius*sin(i), 0));
     }
     //put together coordinates to form shape
     for(int i = 0; i < facets; i++){
         //top + 2 triangles/side + bottom
-        vertices.push_back(tops[i], tops[i+1], {0,0,height},
-                           tops[i], bottoms[i], bottoms[i+1],
-                           tops[i], bottoms[i+1], top[i+1],
-                           bottoms[i], bottoms[i+1], {0,0,0});
+        vertices.push_back(tops[i]);
+        vertices.push_back(tops[i+1]);
+        vertices.push_back(vertex(0,0,height));
+
+        vertices.push_back(tops[i]);
+        vertices.push_back(bottoms[i]);
+        vertices.push_back(bottoms[i+1]);
+
+        vertices.push_back(tops[i]);
+        vertices.push_back(bottoms[i+1]);
+        vertices.push_back(tops[i+1]);
+
+        vertices.push_back(bottoms[i]);
+        vertices.push_back(bottoms[i+1]);
+        vertices.push_back(vertex(0,0,0));
     }
     for(vector<vertex>::iterator v = vertices.begin(); v != vertices.end(); ++v){
         v->x += getX();
@@ -33,7 +44,7 @@ void Cylinder::createVertices(vector<vertex> &vertices) {
 
 void Cylinder::print(string filename) {
     //print stl format
-    f(filename.c_str());
+    ofstream f(filename.c_str());
     createVertices(vertices);
     Shape3D::stlCombineFacets(f,vertices);
 }

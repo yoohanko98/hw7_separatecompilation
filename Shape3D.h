@@ -15,7 +15,11 @@ private:
     double x_t, y_t, z_t;
 public:
     //ofstream f;
-    struct vertex {float x; float y; float z;};
+    struct vertex {
+        double x; double y; double z;
+        vertex(double x, double y, double z): x(x), y(y), z(z){}
+        vertex() {}
+    };
     vector<vertex> vertices;
     Shape3D(double x, double y, double z);
     virtual ~Shape3D();
@@ -24,9 +28,9 @@ public:
     friend vertex operator ^(const vertex& a,const vertex& b); //cross product
     friend vertex operator -(const vertex& a, const vertex& b); //minus vector
     void unit(vertex& v); //make unit vector
-    void stlFacetOut(ofstream& file,vector<vertex>::const_iterator v, vertex normal); //print each facet
+    void stlFacetOut(ofstream& file,const vector<Shape3D::vertex>& vertices, int& i, vertex normal); //print each facet
     void stlCombineFacets(ofstream& file, const vector<vertex>& vertices); //combine all facets
-    float getX(); float getY(); float getZ();
+    double getX(); double getY(); double getZ();
 
 
 };

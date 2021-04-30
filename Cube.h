@@ -12,7 +12,7 @@
 class Cube : public Shape3D {
 private:
     double length;
-    ofstream f;
+    //ofstream f;
 public:
     Cube(double x, double y, double z, double l);
     ~Cube();
