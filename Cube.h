@@ -6,15 +6,15 @@
 #define MYHOMEWORK_CUBE_H
 #include "Shape3D.h"
 #include "string"
-#include "fstream"
+//#include "fstream"
 #include "vector"
 
 class Cube : public Shape3D {
 private:
-    double length;
+    float length;
     //ofstream f;
 public:
-    Cube(double x, double y, double z, double l);
+    Cube(double x, double y, double z, float l);
     ~Cube();
     void print(string filename) override;
     //determine the location of each vertex

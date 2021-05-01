@@ -1,7 +1,7 @@
 #include "Cube.h"
 #include "Cylinder.h"
 #include "Drawing.h"
-#include "Shape3D.h"
+//#include "Shape3D.h"
 /*
 	separate compilation
 
